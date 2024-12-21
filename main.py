@@ -574,11 +574,13 @@ def personalService(uno):
                 if coin["currency"] == "KRW":
                     mywon = float(coin["balance"])
                     print("KRW", mywon)
-                if coin["currency"] == vcoin:
+                elif coin["currency"] == vcoin:
                     myvcoin = float(coin["balance"]) + float(coin["locked"])
                     myrestvcoin = float(coin["balance"])
                     vcoinprice = float(coin["avg_buy_price"])
                     print(str(vcoin),":",str(myvcoin), "Price :", str(vcoinprice))
+                else:
+                    continue
                 # 지갑내용 받아오기 - 해당 코인만
             coinn = "KRW-"+vcoin
             curprice = pyupbit.get_current_price(coinn)
@@ -889,4 +891,4 @@ if __name__ == '__main__':
         print('점검 서버', str(svrno))
         print('서비스 버전', str(mainver))
         print('$$$$$$$$$$$$$$$$$$$')
-        time.sleep(0.5)
+        time.sleep(1.0)
